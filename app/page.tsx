@@ -22,7 +22,7 @@ export default function Home() {
       </section>
 
       {/* Post list */}
-      <section>
+      {posts.length > 0 && (<section>
         <h2 className="font-playfair text-sm font-medium uppercase tracking-widest text-muted-foreground mb-8">
           Writing
         </h2>
@@ -51,7 +51,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section>)}
 
       <Footer />
     </main>
