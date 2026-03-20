@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="16" fill="#171717"/>
+  <text
+    x="16"
+    y="16"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="Playfair Display, serif"
+    font-size="16"
+    font-weight="500"
+    fill="#ffffff"
+    letter-spacing="-0.5"
+  >PF</text>
+</svg>

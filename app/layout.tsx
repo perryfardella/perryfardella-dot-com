@@ -19,6 +19,7 @@ const sourceSans3 = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Perry Fardella",
   description: "CPA & software engineer",
+  icons: { icon: "/favicon.svg" },
 }
 
 export default function RootLayout({
