@@ -12,12 +12,9 @@ export default function Home() {
       <section className="mb-16">
         <h1 className="font-playfair text-4xl font-medium leading-snug mb-6">
           CPA & software engineer
-          <br />
-          based in Australia.
         </h1>
         <p className="text-foreground/70 text-lg leading-relaxed max-w-xl">
-          I write about accounting, software, and the overlap between the two.
-          Currently building tools that make financial workflows less painful.
+          Currently travelling the world, working remote, hanging with friends, training bjj and occassionally building cool shit.
         </p>
       </section>
 

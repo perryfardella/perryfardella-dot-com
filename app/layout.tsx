@@ -18,7 +18,7 @@ const sourceSans3 = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: "Perry Fardella",
-  description: "CPA & software engineer based in Australia.",
+  description: "CPA & software engineer",
 }
 
 export default function RootLayout({
