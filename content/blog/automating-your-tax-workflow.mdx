@@ -1,0 +1,32 @@
+---
+title: Automating Your Tax Workflow
+date: "2026-02-14"
+description: Most accounting practices still run on spreadsheets stitched together with hope. Here's how a few targeted automations can reclaim hours every quarter.
+draft: true
+---
+
+Tax season is the same story every year: hundreds of client files, a dozen spreadsheets, and a calendar that fills up faster than you can clear it. After fifteen years as a CPA and the last several building software on the side, I've come to believe the bottleneck is rarely about knowledge — it's about process.
+
+The biggest wins I've found aren't from replacing accountants with software. They're from eliminating the low-value data-wrangling that accountants shouldn't be doing in the first place.
+
+## Where the time actually goes
+
+Roughly 40% of the time I used to spend on individual tax returns was moving data between systems — bank exports into Excel, Excel into the tax software, the tax software back into a client summary. Each transfer introduced the possibility of error and none of it required any accounting judgement.
+
+The fix was building a thin integration layer: a small script that pulled reconciled transactions from Xero, applied our standard categorisation rules, and dropped a formatted summary directly into our return template. The first version took a weekend. It saved several hours per client per year.
+
+## What "automation" actually means in practice
+
+For most practices, automation doesn't mean AI or complex pipelines. It means:
+
+1. **Standardising your inputs.** If every client delivers data in the same format, you can process them the same way.
+2. **Templating your outputs.** Every letter, every summary, every checklist should start from a template, not a blank page.
+3. **Connecting the gaps.** The manual steps between systems are where time disappears. Even a simple export/import script run once a week compounds into meaningful hours over a year.
+
+## The tax agent's unfair advantage
+
+As accountants, we have something developers often lack: we know exactly what the output needs to look like and why. That domain knowledge is the hardest part of building accounting software. The technical execution — writing a script, setting up a scheduled job — is learnable.
+
+If you're a CPA curious about automation, you don't need to become a software engineer. You need just enough technical literacy to describe the problem precisely and either build a simple version yourself or work effectively with someone who can.
+
+That intersection is where the most interesting work happens.

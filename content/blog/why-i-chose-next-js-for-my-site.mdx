@@ -1,0 +1,48 @@
+---
+title: Why I Chose Next.js for My Personal Site
+date: "2026-03-01"
+description: I considered a handful of static site generators before settling on Next.js. Here's what pushed me there, and what the tradeoffs look like a few weeks in.
+draft: true
+---
+
+When I decided to rebuild my personal site, the options felt endless. Hugo for speed, Jekyll for simplicity, Astro for flexibility, Next.js for scale. For a site that's mostly text, any of them would have worked. So the decision came down to what I wanted to *learn*, not just what would ship fastest.
+
+## The case for Next.js
+
+I'm already writing TypeScript daily. Having the same language, the same module system, and the same mental model across my personal projects means less context-switching.
+
+The App Router's file-system conventions also map cleanly to how I think about this site: a home page, a collection of posts, and individual post pages. No config files describing routes — just folders.
+
+```typescript
+// lib/posts.ts — reading MDX files from the filesystem
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
+
+export function getAllPosts() {
+  const dir = path.join(process.cwd(), "content/blog")
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith(".mdx"))
+    .map((filename) => {
+      const slug = filename.replace(/\.mdx$/, "")
+      const raw = fs.readFileSync(path.join(dir, filename), "utf8")
+      const { data, content } = matter(raw)
+      return { slug, ...data, content }
+    })
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+}
+```
+
+The function above is the whole "CMS": read MDX files, parse frontmatter with `gray-matter`, sort by date. No database, no build step beyond `pnpm run build`.
+
+## What I gave up
+
+Compared to Hugo, Next.js is heavier. The build is slower and the node_modules folder is embarrassingly large for a personal site. If I cared about build times at this scale, I'd use something else.
+
+I also had to wire up the MDX rendering pipeline myself — `next-mdx-remote`, `rehype-pretty-code`, the typography plugin. With a purpose-built blog tool, that's all handled for you.
+
+## The verdict
+
+A few weeks in, I'm happy with the tradeoff. The codebase feels familiar. Adding a new feature means writing TypeScript I already know, not learning a new template language.
+
+For a personal site that's also a learning environment, that matters more than raw simplicity.

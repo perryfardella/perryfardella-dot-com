@@ -1,26 +1,34 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Make all dark: variants respond to the .dark class (applied by next-themes)
+   instead of @media (prefers-color-scheme: dark). */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* 4.75:1 contrast vs #ffffff — passes WCAG AA for all text sizes */
+  --muted-foreground: #737373;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  /* 7.85:1 contrast vs #0a0a0a — passes WCAG AA */
+  --muted-foreground: #a3a3a3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted-foreground: var(--muted-foreground);
+  --font-playfair: var(--font-playfair-display), serif;
+  --font-source-sans: var(--font-source-sans-3), sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-source-sans);
 }
